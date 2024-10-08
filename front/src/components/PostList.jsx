@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
-const PostList = ({postData}) => {
+const PostList = ({ postData }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -24,18 +24,16 @@ const PostList = ({postData}) => {
       <h3>Post List</h3>
       <ul>
         {posts.map((post) => (
-          // <Route path="/posts/:postId" element={<PostDetail />} />
-          <Link to="/posts/:postId">
-            <li key={post.id}>
+          <li key={post.id}>
+            <Link to={`/posts/${post.id}`}>
               <span>{post.title}</span>
               <p>유저아이디 : {post.user_id}</p>
-            </li>
-          </Link>
-          
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;
